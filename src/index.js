@@ -5,8 +5,8 @@ import "./index.css";
 import App from "./App";
 import "./App.css";
 import { render } from 'react-dom';
-
+import Character from "./components/Character";
 import { worker } from "./mocks/browser";
 worker.start();
 
-ReactDOM.render(<App person='Character' height />, document.getElementById("root"));
+ReactDOM.render(<App />,document.getElementById("root"));
