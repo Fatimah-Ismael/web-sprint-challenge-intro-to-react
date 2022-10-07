@@ -5,33 +5,32 @@ import "./App.css";
 import { handlers , data } from './mocks/handlers';
 import Character from './components/Character';
 
-const dummyData= 
+const dummyData= [
     {
       name: "Luke Skywalker",
-      height: "172",
-      mass: "77",
-      hair_color: "blond",
-      skin_color: "fair",
-      eye_color: "blue",
       birth_year: "19BBY",
-      gender: "male",
-    }
+    },
+    {
+      name: "C-3PO",
+      birth_year: "112BBY",
+  }
+]
 
 function App() {
 const [data, setData] = useState(dummyData);
-/*
+
 useEffect(() => {
   axios.get(`https://swapi.dev/api/people/`)
   .then(res => {
     setData(res.data);
   }).catch(err => console.error(err))
-}, [])
-*/
+})
+
 return (
   <div className="App">
     <h1 className="Header">Characters</h1>
-     <Character data={data}/>
-     <Character data={data}/>
+     <Character data={data} />
+     
      
   </div>
 );
