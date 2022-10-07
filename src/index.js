@@ -9,4 +9,4 @@ import Character from "./components/Character";
 import { worker } from "./mocks/browser";
 worker.start();
 
-ReactDOM.render(<App />,document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));

@@ -5,34 +5,31 @@ import "./App.css";
 import { handlers , data } from './mocks/handlers';
 import Character from './components/Character';
 
-const dummyData= [
-    {
-      name: "Luke Skywalker",
-      birth_year: "19BBY",
-    },
-    {
-      name: "C-3PO",
-      birth_year: "112BBY",
-  }
-]
+
 
 function App() {
-const [data, setData] = useState(dummyData);
+const [data, setData] = useState([ ]);
 
 useEffect(() => {
   axios.get(`https://swapi.dev/api/people/`)
   .then(res => {
-    setData(res.data);
+   setData(res.data);
   }).catch(err => console.error(err))
-})
+}, [])
 
 return (
   <div className="App">
     <h1 className="Header">Characters</h1>
-     <Character data={data} />
      
-     
+    {/* MAPPING OVER DATA*/}
+    { data.map(data => {
+      return <div>
+               <data info={data.name} />
+        </div>
+      
+    })}
   </div>
+
 );
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.

@@ -18,16 +18,11 @@ const dummyData= [
 
 const Character = (props) => {
 
+
     return (
         <div className="character-name-wrapper"> 
-            <h3>name: Luke Skywalker</h3>
-            <p>birth year: 19BBY </p>
-            <h3>name: C-3PO</h3>
-            <p>birth year: 112BBY </p>
-            <h3>name: R2-D2</h3>
-            <p>birth year: 33BBY </p>
-            <h3>name: Darth Vader</h3>
-            <p>birth year: 41.9BBY </p>
+            <h3>name: {props.data.name}</h3>
+            <p>birth year: {props.data.birth_year} </p>   
         </div>
     )
        
