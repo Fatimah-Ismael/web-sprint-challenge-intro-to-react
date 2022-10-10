@@ -1,33 +1,39 @@
 // Write your Character component here
-import React, { useState }from "react"
+import React, { useState, useEffect }from "react"
 import { data } from "../mocks/handlers"
+import axios from 'axios';
 
-const dummyData= [
-    {
-      name: "Luke Skywalker",
-      height: "172",
-      mass: "77",
-      hair_color: "blond",
-      skin_color: "fair",
-      eye_color: "blue",
-      birth_year: "19BBY",
-      gender: "male",
-    }
+ function Character(props){
+    const [starWars, setStarWars] = useState(data);
     
-]
+    
 
-const Character = (props) => {
+/*
+useEffect(() => {
+  axios.get(`https://swapi.dev/api/people/`)
+  .then(res => {
+   setData(res.data);
+  }).catch(err => console.error(err))
+}, [])
 
+/*--------
+insert under return 
+<h2>Name: {starWars}</h2>
+*/
 
-    return (
-        <div className="character-name-wrapper"> 
-            <h3>name: {props.data.name}</h3>
-            <p>birth year: {props.data.birth_year} </p>   
-        </div>
-    )
+return ( 
+    <div className= 'character container'>
+        {data.map(char =>
+            <div className="characters" key={char.name}>
+                {char.name}  Birth Year: {char.birth_year}
+            </div>
+                )}
+
+    </div>
        
-  };
-  
-  
+      )
+}
+
+    
   export default Character;
 
